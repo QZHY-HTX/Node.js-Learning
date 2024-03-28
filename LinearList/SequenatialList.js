@@ -16,14 +16,14 @@ function initial() {
  */
 function push(index, element) {
     if (index < 0 || index > length + 1) {
-        return "\x1b[0m" + "\nindex error";
+        return "\x1b[31m" + "\nindex error";
     }
     for (var i = length - 1; i >= index - 1; i--) {
         SequenatialList[i + 1] = SequenatialList[i];
     }
     SequenatialList[index - 1] = element;
     length++;
-    return "\x1b[0m" + "\npush successfully"
+    return "\x1b[32m" + "\npush successfully"
 }
 
 /**
@@ -32,14 +32,14 @@ function push(index, element) {
  */
 function pop(index) {
     if (index < 0 || index > length + 1) {
-        return "\x1b[0m" + "\nindex error";
+        return "\x1b[31m" + "\nindex error";
     }
     var popElement = SequenatialList[index - 1];
     for (var i = index - 1; i < length; i++) {
         SequenatialList[i] = SequenatialList[i + 1];
     }
     length--;
-    return "\x1b[0m" + "\npop element `" + popElement + "` successfully";
+    return "\x1b[32m" + "\npop element `" + popElement + "` successfully";
 }
 
 
