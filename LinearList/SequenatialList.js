@@ -42,7 +42,33 @@ function pop(index) {
     return "\x1b[32m" + "\npop element `" + popElement + "` successfully";
 }
 
+/**
+ * 按位置查找元素
+ * @param {第几个元素} index 
+ * @returns 
+ */
+function findElementByIndex(index){
+    if(index<0||index>length+1){
+        return "\x1b[31m" + "\nindex error";
+    }else{
+        return SequenatialList[index-1];
+    }
+}
+/**
+ * 按值查找
+ * @param {什么值} element 
+ * @returns 
+ */
+function findElementByValue(element){
+    for(var i =0;i<length;i++){
+        if(SequenatialList[i]==element){
+            return "\x1b[32m" + "\nfind element `" + element + "` successfully, the index is " + (i+1);
+        }
+    }
+    return "\x1b[31m"+"not find this element";
+}
 
+//输出顺序表
 function print() {
     process.stdout.write("\x1b[93m" + "[")
     if (length != 0) {
@@ -58,6 +84,9 @@ function print() {
     }
 }
 
+function getSequenatialListLength(){
+    return length;
+}
 
 console.log(initial());
 console.log(push(1, 1));
@@ -70,13 +99,16 @@ console.log(push(4, 4));
 print();
 console.log(push(2, 5));
 print();
-console.log(pop(3));
-print();
-console.log(pop(1));
-print();
-console.log(pop(2));
-print();
-console.log(pop(1));
-print();
-console.log(pop(1));
-print();
+// console.log(pop(3));
+// print();
+// console.log(pop(1));
+// print();
+// console.log(pop(2));
+// print();
+// console.log(pop(1));
+// print();
+// console.log(pop(1));
+// print();
+console.log(findElementByValue(5));
+console.log(findElementByIndex(3));
+console.log(findElementByValue(7));
